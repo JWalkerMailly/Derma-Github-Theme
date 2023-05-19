@@ -5,7 +5,7 @@ local Color = Color;
 hook.Add("SpawnMenuCreated", "Derma.Github.Fonts", function()
 
 	surface.CreateFont("DermaDefault", {
-		font      = "Mona-Sans Medium",
+		font      = "Mona-Sans Regular",
 		extended  = false,
 		size      = 16,
 		weight    = 500,
@@ -23,7 +23,7 @@ hook.Add("SpawnMenuCreated", "Derma.Github.Fonts", function()
 	});
 
 	surface.CreateFont("DermaDefaultBold", {
-		font      = "Mona-Sans Medium",
+		font      = "Mona-Sans Regular",
 		extended  = false,
 		size      = 16,
 		weight    = 500,
@@ -41,7 +41,7 @@ hook.Add("SpawnMenuCreated", "Derma.Github.Fonts", function()
 	});
 
 	surface.CreateFont("DermaLarge", {
-		font      = "Mona-Sans Medium",
+		font      = "Mona-Sans Regular",
 		extended  = false,
 		size      = 32,
 		weight    = 500,
