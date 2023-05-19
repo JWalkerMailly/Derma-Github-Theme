@@ -59,7 +59,7 @@ hook.Add("SpawnMenuCreated", "Derma.Github.Fonts", function()
 	});
 
 	surface.CreateFont("ContentHeader", {
-		font      = "Mona-Sans Medium",
+		font      = "Mona-Sans",
 		extended  = false,
 		size      = 32,
 		weight    = 500,
