@@ -17,7 +17,7 @@ For Source components, see this project:\
 
 ## How to install
 
-- Clone repository in your addons folder.
+- Clone repository in your addons folder or use the Steam Workshop.
 
 ## Screenshots
 
