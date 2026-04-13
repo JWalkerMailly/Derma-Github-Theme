@@ -76,43 +76,25 @@ hook.Add("SpawnMenuCreated", "Derma.Github.Fonts", function()
 		outline   = false
 	});
 
-	local function GetUpValues(f)
+	local DProperties = table.Copy(vgui.GetControlTable("DProperties"))
+	local original_GetCategory = DProperties.GetCategory
 
-		local _index, _table = 1, {};
+	DProperties.GetCategory = function(self, name, bCreate)
 
-		while true do
+		-- Call whatever GetCategory currently exists (works with other themes too)
+		local cat = original_GetCategory(self, name, bCreate)
 
-			local key, val = debug.getupvalue(f, _index);
-			if !key then break; end
-
-			_table[key] = val;
-			_index      = _index + 1;
+		-- Only apply our paint override if we got a valid category back
+		if IsValid(cat) && cat.Container then
+			cat.Container.Paint = function(pnl, w, h)
+				self:GetSkin():PaintListBox(pnl, w, h)
+			end
 		end
 
-		return _table;
+		return cat
 	end
 
-	-- This was taken from https://steamcommunity.com/sharedfiles/filedetails/?id=938347376&searchtext=themer
-	local DProperties       = table.Copy(vgui.GetControlTable("DProperties"));
-	local __Category        = GetUpValues(DProperties.GetCategory).tblCategory;
-	DProperties.GetCategory = function(self, name, create)
-
-		local category = self.Categories[name];
-		if (IsValid(category)) then return category; end
-		if (!create) then return; end
-
-		-- Call to PaintListBox to override default white look.
-		category = self:GetCanvas():Add(__Category);
-		category.Label:SetText(name);
-		category.Container.Paint = function(pnl, w, h)
-			self:GetSkin():PaintListBox(pnl, w, h);
-		end
-
-		self.Categories[name] = category;
-		return category;
-	end
-
-	derma.DefineControl("DProperties", "", DProperties, "Panel");
+	derma.DefineControl("DProperties", "", DProperties, "Panel")
 end);
 
 SKIN = {};
