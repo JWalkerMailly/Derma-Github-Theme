@@ -1,0 +1,17 @@
+{
+	"title"  : "Derma Github Dark Theme Skin",
+	"type"   : "Effects",
+	"tags"   : [ "build", "fun" ],
+	"ignore" :
+	[
+		"*.git*",
+		"*.gitignore*",
+		"*addon.txt*",
+		"*readme*",
+		"LICENSE",
+		"README.md",
+		"Github Suite.png",
+		"screenshot.png",
+		"workshop.jpg"
+	]
+}
